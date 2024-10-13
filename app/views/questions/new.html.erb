@@ -1,11 +1,11 @@
 <h1>Создать новый вопрос теста</h1>
 
-<form action="/tests/120/questions" method="POST" data-turbo="false">
+<form action="/tests/<%= @test.id %>/questions" method="POST" data-turbo="false">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label for="question-body">Текст вопроса:</label>
   <input type="text" id="question-body" name="question[body]" required>
-  <input type="hidden" name="question[test_id]" value="120">
+  <!-- <input type="hidden" name="question[test_id]" value="120"> -->
   <br><br>
   <input type="submit" value="Создать">
 
