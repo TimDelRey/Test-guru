@@ -7,4 +7,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :tests do
+    resources :questions, shallow: true
+  end
+
+  root to: 'tests#index'
+
+  # get '/questions/:id/delete', to: 'questions#destroy'
+
 end
