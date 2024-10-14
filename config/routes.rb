@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :tests do
-    resources :questions #, shallow: true
+    resources :questions, shallow: true
   end
 
   root to: 'tests#index'
 
-  get '/tests/:test_id/questions/:id/delete', to: 'questions#destroy'
+  # get '/questions/:id/delete', to: 'questions#destroy'
 
 end
