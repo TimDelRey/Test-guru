@@ -1,13 +1,14 @@
-class QuestionsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :found_test, only: [:index, :new, :create]
-  before_action :found_question, only: [:show, :destroy]
+class QuestionsController < ApplicationController
+  before_action :found_test, only: %i[index new create]
+  before_action :found_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
     @questions = @test.questions
-    render inline: '<%= @questions.pluck(:id, :body).join("\n")%>'
+    # render inline: '<%= @questions.pluck(:id, :body).join("\n")%>'
   end
 
   def new; end
