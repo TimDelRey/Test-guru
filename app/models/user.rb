@@ -11,7 +11,7 @@ class User < ApplicationRecord
            dependent: :destroy
   has_many :tests, through: :started_test
 
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def tests_history_by_level(level)
     Test.joins(:started_tests)

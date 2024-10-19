@@ -106,99 +106,135 @@ fish_course_q1, fish_course_q2 =
                      { body: 'Какой перец добавляется в спагетти с тыквой и креветками?', # ground chili pepper
                        test_id: fish_course.id }
                    ])
-# 1st line category
-Answer.create!([
-                 { body: 'Один', correct: true, question_id: veg_salads_q1.id },
-                 { body: 'Два', correct: false, question_id: veg_salads_q1.id },
-                 { body: 'Три', correct: false, question_id: veg_salads_q1.id },
-                 { body: 'Ни одного', correct: false, question_id: veg_salads_q1.id },
+Answer.create! ([ 
+  {body: 'Один', correct: true, question_id: veg_salads_q1.id},
+  {body: 'Два', correct: false, question_id: veg_salads_q1.id},
+  {body: 'Три', correct: false, question_id: veg_salads_q1.id},
+  {body: 'Ни одного', correct: false, question_id: veg_salads_q1.id},
 
-                 { body: '100 г', correct: false, question_id: veg_salads_q2.id },
-                 { body: '150 г', correct: true, question_id: veg_salads_q2.id },
-                 { body: '150 г', correct: false, question_id: veg_salads_q2.id },
-                 { body: '250 г', correct: false, question_id: veg_salads_q2.id },
+  {body: '100 г', correct: false, question_id: veg_salads_q2.id},
+  {body: '150 г', correct: true, question_id: veg_salads_q2.id},
+  {body: '150 г', correct: false, question_id: veg_salads_q2.id},
+  {body: '250 г', correct: false, question_id: veg_salads_q2.id},
 
-                 { body: '1 морковь', correct: false, question_id: meat_salads_q1.id },
-                 { body: '2 морковки', correct: false, question_id: meat_salads_q1.id },
-                 { body: '3 морковки', correct: false, question_id: meat_salads_q1.id },
-                 { body: 'Ни одной', correct: true, question_id: meat_salads_q1.id },
+  {body: '1 морковь', correct: false, question_id: meat_salads_q1.id},
+  {body: '2 морковки', correct: false, question_id: meat_salads_q1.id},
+  {body: '3 морковки', correct: false, question_id: meat_salads_q1.id},
+  {body: 'Ни одной', correct: true, question_id: meat_salads_q1.id},
 
-                 { body: '30 минут', correct: false, question_id: meat_salads_q2.id },
-                 { body: '1 час', correct: false, question_id: meat_salads_q2.id },
-                 { body: '2 часа', correct: true, question_id: meat_salads_q2.id },
-                 { body: '3 часа', correct: false, question_id: meat_salads_q2.id },
+  {body: '30 минут', correct: false, question_id: meat_salads_q2.id},
+  {body: '1 час', correct: false, question_id: meat_salads_q2.id},
+  {body: '2 часа', correct: true, question_id: meat_salads_q2.id},
+  {body: '3 часа', correct: false, question_id: meat_salads_q2.id},
 
-                 { body: 'Лимонный сок', correct: true, question_id: fruit_salads_q1.id },
-                 { body: 'Сок грэйпфрута', correct: false, question_id: fruit_salads_q1.id },
-                 { body: 'Яблочный сок', correct: false, question_id: fruit_salads_q1.id },
-                 { body: 'Гранатовый сок', correct: false, question_id: fruit_salads_q1.id },
+  {body: 'Лимонный сок', correct: true, question_id: fruit_salads_q1.id},
+  {body: 'Сок грэйпфрута', correct: false, question_id: fruit_salads_q1.id},
+  {body: 'Яблочный сок', correct: false, question_id: fruit_salads_q1.id},
+  {body: 'Гранатовый сок', correct: false, question_id: fruit_salads_q1.id},
 
-                 { body: 'Жаренные семечки', correct: false, question_id: fruit_salads_q2.id },
-                 { body: 'Конжутные семечки', correct: false, question_id: fruit_salads_q2.id },
-                 { body: 'Тыквенные семечки', correct: false, question_id: fruit_salads_q2.id },
-                 { body: 'Допускаются все варианты', correct: true, question_id: fruit_salads_q2.id }
-               ])
+  {body: 'Жаренные семечки', correct: false, question_id: fruit_salads_q2.id},
+  {body: 'Конжутные семечки', correct: false, question_id: fruit_salads_q2.id},
+  {body: 'Тыквенные семечки', correct: false, question_id: fruit_salads_q2.id},
+  {body: 'Допускаются все варианты', correct: true, question_id: fruit_salads_q2.id}
+])
 # 2nd line category
-Answer.create!([
-                 { body: 'Вино белое', correct: false, question_id: veg_soups_q1.id },
-                 { body: 'Вино розовое', correct: false, question_id: veg_soups_q1.id },
-                 { body: 'Вино красное', correct: true, question_id: veg_soups_q1.id },
-                 { body: 'Ликер', correct: false, question_id: veg_soups_q1.id },
+veg_soups_q1_a1, veg_soups_q1_a2, veg_soups_q1_a3, veg_soups_q1_a4,
+veg_soups_q2_a1, veg_soups_q2_a2, veg_soups_q2_a3, veg_soups_q2_a4,
+meat_soups_q1_a1, meat_soups_q1_a2, meat_soups_q1_a3, meat_soups_q1_a4,
+meat_soups_q2_a1, meat_soups_q2_a2, meat_soups_q2_a3, meat_soups_q2_a4,
+fish_soups_q1_a1, fish_soups_q1_a2, fish_soups_q1_a3, fish_soups_q1_a4,
+fish_soups_q2_a1, fish_soups_q2_a2, fish_soups_q2_a3, fish_soups_q2_a4 = 
+Answer.create! ([
+  {body: 'Вино белое', correct: false, question_id: veg_soups_q1.id},
+  {body: 'Вино розовое', correct: false, question_id: veg_soups_q1.id},
+  {body: 'Вино красное', correct: true, question_id: veg_soups_q1.id},
+  {body: 'Ликер', correct: false, question_id: veg_soups_q1.id},
 
-                 { body: 'Пармезан', correct: true, question_id: veg_soups_q2.id },
-                 { body: 'Сливочный', correct: false, question_id: veg_soups_q2.id },
-                 { body: 'Гауда', correct: false, question_id: veg_soups_q2.id },
-                 { body: 'Королевский', correct: false, question_id: veg_soups_q2.id },
+  {body: 'Пармезан', correct: true, question_id: veg_soups_q2.id},
+  {body: 'Сливочный', correct: false, question_id: veg_soups_q2.id},
+  {body: 'Гауда', correct: false, question_id: veg_soups_q2.id},
+  {body: 'Королевский', correct: false, question_id: veg_soups_q2.id},
 
-                 { body: 'Куринные сердечки', correct: false, question_id: meat_soups_q1.id },
-                 { body: 'Куринные шкурки', correct: false, question_id: meat_soups_q1.id },
-                 { body: 'Куринные крылашки', correct: true, question_id: meat_soups_q1.id },
-                 { body: 'Куринные бедрышки', correct: false, question_id: meat_soups_q1.id },
+  {body: 'Куринные сердечки', correct: false, question_id: meat_soups_q1.id},
+  {body: 'Куринные шкурки', correct: false, question_id: meat_soups_q1.id},
+  {body: 'Куринные крылашки', correct: true, question_id: meat_soups_q1.id},
+  {body: 'Куринные бедрышки', correct: false, question_id: meat_soups_q1.id},
 
-                 { body: 'С водочкой', correct: false, question_id: meat_soups_q2.id },
-                 { body: 'С салом', correct: false, question_id: meat_soups_q2.id },
-                 { body: 'С пампушками', correct: false, question_id: meat_soups_q2.id },
-                 { body: 'С гренками', correct: true, question_id: meat_soups_q2.id },
+  {body: 'С водочкой', correct: false, question_id: meat_soups_q2.id},
+  {body: 'С салом', correct: false, question_id: meat_soups_q2.id},
+  {body: 'С пампушками', correct: false, question_id: meat_soups_q2.id},
+  {body: 'С гренками', correct: true, question_id: meat_soups_q2.id},
 
-                 { body: 'Морковь', correct: false, question_id: fish_soups_q1.id },
-                 { body: 'Огурец', correct: true, question_id: fish_soups_q1.id },
-                 { body: 'Лук', correct: false, question_id: fish_soups_q1.id },
-                 { body: 'Помидор', correct: false, question_id: fish_soups_q1.id },
+  {body: 'Морковь', correct: false, question_id: fish_soups_q1.id},
+  {body: 'Огурец', correct: true, question_id: fish_soups_q1.id},
+  {body: 'Лук', correct: false, question_id: fish_soups_q1.id},
+  {body: 'Помидор', correct: false, question_id: fish_soups_q1.id},
 
-                 { body: '5 порций', correct: true, question_id: fish_soups_q2.id },
-                 { body: '6 порций', correct: false, question_id: fish_soups_q2.id },
-                 { body: '7 порций', correct: false, question_id: fish_soups_q2.id },
-                 { body: '8 порций', correct: false, question_id: fish_soups_q2.id }
-               ])
+  {body: '5 порций', correct: true, question_id: fish_soups_q2.id},
+  {body: '6 порций', correct: false, question_id: fish_soups_q2.id},
+  {body: '7 порций', correct: false, question_id: fish_soups_q2.id},
+  {body: '8 порций', correct: false, question_id: fish_soups_q2.id}
+])
 # 3th line
-Answer.create!([
-                 { body: 'Пшено', correct: false, question_id: veg_course_q1.id },
-                 { body: 'Ячмень', correct: false, question_id: veg_course_q1.id },
-                 { body: 'Овсянка', correct: false, question_id: veg_course_q1.id },
-                 { body: 'Перловка', correct: true, question_id: veg_course_q1.id },
+veg_course_q1_a1, veg_course_q1_a2, veg_course_q1_a3, veg_course_q1_a4,
+veg_course_q2_a1, veg_course_q2_a2, veg_course_q2_a3, veg_course_q2_a4,
+meat_course_q1_a1, meat_course_q1_a2, meat_course_q1_a3, meat_course_q1_a4,
+meat_course_q2_a1, meat_course_q2_a2, meat_course_q2_a3, meat_course_q2_a4,
+fish_course_q1_a1, fish_course_q1_a2, fish_course_q1_a3, fish_course_q1_a4,
+fish_course_q2_a1, fish_course_q2_a2, fish_course_q2_a3, fish_course_q2_a4 = 
+Answer.create! ([
+  {body: 'Пшено', correct: false, question_id: veg_course_q1.id},
+  {body: 'Ячмень', correct: false, question_id: veg_course_q1.id},
+  {body: 'Овсянка', correct: false, question_id: veg_course_q1.id},
+  {body: 'Перловка', correct: true, question_id: veg_course_q1.id},
 
-                 { body: 'Розовое полусладкое вино', correct: false, question_id: veg_course_q2.id },
-                 { body: 'Красное полусладкое', correct: false, question_id: veg_course_q2.id },
-                 { body: 'Красное сухое вино', correct: true, question_id: veg_course_q2.id },
-                 { body: 'Белое сухое вино', correct: false, question_id: veg_course_q2.id },
+  {body: 'Розовое полусладкое вино', correct: false, question_id: veg_course_q2.id},
+  {body: 'Красное полусладкое', correct: false, question_id: veg_course_q2.id},
+  {body: 'Красное сухое вино', correct: true, question_id: veg_course_q2.id},
+  {body: 'Белое сухое вино', correct: false, question_id: veg_course_q2.id},
 
-                 { body: 'Чеснока столько же сколько имбиря', correct: false, question_id: meat_course_q1.id },
-                 { body: 'Чеснока чуть больше чем имбиря', correct: true, question_id: meat_course_q1.id },
-                 { body: 'Имбиря чуть больше чем чеснока', correct: false, question_id: meat_course_q1.id },
-                 { body: 'Пропорции имбиря и чеснока не важны', correct: false, question_id: meat_course_q1.id },
+  {body: 'Чеснока столько же сколько имбиря', correct: false, question_id: meat_course_q1.id},
+  {body: 'Чеснока чуть больше чем имбиря', correct: true, question_id: meat_course_q1.id},
+  {body: 'Имбиря чуть больше чем чеснока', correct: false, question_id: meat_course_q1.id},
+  {body: 'Пропорции имбиря и чеснока не важны', correct: false, question_id: meat_course_q1.id},
 
-                 { body: 'Шампиньоны', correct: true, question_id: meat_course_q2.id },
-                 { body: 'Опята', correct: false, question_id: meat_course_q2.id },
-                 { body: 'Мышата', correct: false, question_id: meat_course_q2.id },
-                 { body: 'Любые грибы', correct: false, question_id: meat_course_q2.id },
+  {body: 'Шампиньоны', correct: true, question_id: meat_course_q2.id},
+  {body: 'Опята', correct: false, question_id: meat_course_q2.id},
+  {body: 'Мышата', correct: false, question_id: meat_course_q2.id},
+  {body: 'Любые грибы', correct: false, question_id: meat_course_q2.id},
 
-                 { body: 'Паста Песто', correct: false, question_id: fish_course_q1.id },
-                 { body: 'Паста Карбонара', correct: false, question_id: fish_course_q1.id },
-                 { body: 'Паста Мессо', correct: true, question_id: fish_course_q1.id },
-                 { body: 'Паста Конкилье', correct: false, question_id: fish_course_q1.id },
+  {body: 'Паста Песто', correct: false, question_id: fish_course_q1.id},
+  {body: 'Паста Карбонара', correct: false, question_id: fish_course_q1.id},
+  {body: 'Паста Мессо', correct: true, question_id: fish_course_q1.id},
+  {body: 'Паста Конкилье', correct: false, question_id: fish_course_q1.id},
 
-                 { body: 'Молотый чили', correct: true, question_id: fish_course_q2.id },
-                 { body: 'Свежемолотый черный перец', correct: false, question_id: fish_course_q2.id },
-                 { body: 'Кайенский перец', correct: false, question_id: fish_course_q2.id },
-                 { body: 'Мелконарезанный халапеньо', correct: false, question_id: fish_course_q2.id }
-               ])
+  {body: 'Молотый чили', correct: true, question_id: fish_course_q2.id},
+  {body: 'Свежемолотый черный перец', correct: false, question_id: fish_course_q2.id},
+  {body: 'Кайенский перец', correct: false, question_id: fish_course_q2.id},
+  {body: 'Мелконарезанный халапеньо', correct: false, question_id: fish_course_q2.id}
+])
+
+
+pomich_users_tests = [{test_id: vegetable_salads.id},
+                      {test_id: meat_soups.id},
+                      {test_id: fish_course.id}]
+
+nataly_users_tests = [{test_id: meat_salads.id},
+                      {test_id: fish_soups.id},
+                      {test_id: vegetable_salads.id}]
+
+maks_users_tests = [{test_id: fruit_salads.id},
+                    {test_id: vegetable_course.id},
+                    {test_id: meat_salads.id}]
+
+# pomich_exp1, pomich_exp2, 
+pomich_exp3 = 
+User.find(pomich.id).started_test.create(pomich_users_tests)
+
+# nataly_exp1, nataly_exp2, 
+nataly_exp3 = 
+User.find(nataly.id).started_test.create(nataly_users_tests)
+
+# maks_exp1, maks_exp2, 
+maks_exp3 = 
+User.find(maks.id).started_test.create(maks_users_tests)
