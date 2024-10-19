@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :found_test, only: %i[index new create]
-  before_action :found_question, only: %i[show destroy]
+  before_action :search_test, only: %i[index new create]
+  before_action :search_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -35,11 +35,11 @@ class QuestionsController < ApplicationController
 
   private
 
-  def found_test
+  def search_test
     @test = Test.find(params[:test_id])
   end
 
-  def found_question
+  def search_question
     @question = Question.find(params[:id])
   end
 
