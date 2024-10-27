@@ -1,0 +1,24 @@
+<h1>Создать новый тест</h1>
+<%= form_with model: @test do |form| %>
+  <p>
+    <%= form.label 'Название теста' %>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label 'Уровень теста' %>
+    <%= form.number_field :level, in: 0..4, min: 0, max: 4 %>
+  </p>
+
+  <p>
+    <%= form.label 'Выберите категорию вопроса' %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
+
+  <p>
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :name, prompt: true %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>

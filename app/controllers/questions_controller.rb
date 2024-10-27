@@ -7,8 +7,9 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = @test.questions
+    # @questions = @test.questions
     # render inline: '<%= @questions.pluck(:id, :body).join("\n")%>'
+    redirect_to @test
   end
 
   def new; end

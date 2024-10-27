@@ -1,0 +1,14 @@
+<h1><%= @tests_title %></h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Вопросы</th>
+  </tr>
+
+  <% @tests_questions.each do |t_q| %>
+  <tr>
+    <td><%= t_q.id %></td>
+    <td><%= t_q.body %></td>
+  </tr>
+  <% end %>
+</table>
