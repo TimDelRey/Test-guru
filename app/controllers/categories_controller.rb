@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-
   before_action :search_category, only: %i[show edit update]
 
   def index
@@ -20,9 +19,9 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       redirect_to categories_path
-      else
-        render :new
-      end
+    else
+      render :new
+    end
   end
 
   def edit; end

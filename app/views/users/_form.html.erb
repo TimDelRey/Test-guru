@@ -1,0 +1,15 @@
+<%= form_with(model: @user, data: { turbo: false }) do |form| %>
+
+<%= render 'share/errors', resource: @user %>
+
+  <p>
+    <%= form.label 'Введите имя пользователя: ' %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label 'Введите электронную почту пользователя: ' %>
+    <%= form.text_field :email %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
