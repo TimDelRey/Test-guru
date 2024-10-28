@@ -1,5 +1,18 @@
 <h1>Создать новый тест</h1>
-<%= form_with model: @test do |form| %>
+
+<%= form_with(model: @test, data: { turbo: false }) do |form| %>
+  
+  <% if @test.errors.present? %>
+    <div>
+      <h2>Обнаружены ошибки в кол-ве: <%= @test.errors.count%></h2>
+      <ul>
+        <% @test.errors.full_messages.each do |messages| %>
+          <li><%= messages %></li>
+        <% end %>  
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= form.label 'Название теста' %>
     <%= form.text_field :title %>

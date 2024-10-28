@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :questions, shallow: true
   end
 
+  resources :categories do
+    resources :tests, shallow: true
+  end
+
   root to: 'tests#index'
 
   # get '/questions/:id/delete', to: 'questions#destroy'

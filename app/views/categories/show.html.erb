@@ -1,0 +1,13 @@
+<h1><%= @category.title %></h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Тесты</th>
+  </tr>
+  <% @tests.each do |test| %>
+  <tr>
+    <td><%= test.id %></td>
+    <td><%= test.title %></td>
+  </tr>
+  <% end %>
+</table>
