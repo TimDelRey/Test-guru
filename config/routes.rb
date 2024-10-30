@@ -11,15 +11,19 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :tests do
-    resources :questions, shallow: true
+    resources :questions, except: :show, shallow: true
   end
 
-  resources :categories do
-    resources :tests, shallow: true
-  end
+  resources :categories #do
+  #   resources :tests, only: [], shallow: true
+  # end
 
-  resources :users do
-    resources :tests, shallow: true
+  resources :users #do
+  #   resources :tests, only: [], shallow: true
+  # end
+
+  resources :questions, only: [] do
+    resources :answers, shallow: true
   end
 
   root to: 'tests#index'

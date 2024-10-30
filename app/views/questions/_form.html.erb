@@ -1,0 +1,12 @@
+<%= form_with(model: [@test, @question], data: { turbo: false }) do |form| %>
+
+<%= render 'share/errors', resource: @question %>
+
+  <p>
+    <%= form.label :body, 'Введите текст нового вопроса: ' %>
+    <%= form.text_field :body %>
+    <% form.hidden_field :test_id, value: @test.id %>
+  </p>
+ 
+  <p><%= form.submit %></p>
+<% end %>

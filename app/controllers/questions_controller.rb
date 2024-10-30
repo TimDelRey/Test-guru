@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_action :search_test, only: %i[index new create]
   before_action :search_question, only: %i[show destroy]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
     # @questions = @test.questions
@@ -12,14 +12,16 @@ class QuestionsController < ApplicationController
     redirect_to @test
   end
 
-  def new; end
+  def new
+    @question = Question.new
+  end
 
   def show
     render inline: '<%= @question.body%>'
   end
 
   def create
-    @question = @test.questions.build(params.require(:question).permit(:body))
+    @question = @test.questions.build(question_params)
     if @question.save
       redirect_to test_questions_path
     else
@@ -42,6 +44,10 @@ class QuestionsController < ApplicationController
 
   def search_question
     @question = Question.find(params[:id])
+  end
+
+  def question_params
+    params.require(:question).permit(:body, :test_id)
   end
 
   def rescue_with_question_not_found

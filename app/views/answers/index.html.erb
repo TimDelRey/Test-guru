@@ -1,0 +1,16 @@
+<%= form_with(model: @category, data: { turbo: false }) do |form| %>
+  <h1>Ответы к вопросу <%= @question.id %></h1>
+  <h2>Вопрос: <%= @question.body %></h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Текст ответа</th>
+    </tr>
+    <% @answers.each do |answer| %>
+    <tr>
+      <td><%= answer.id %></td>
+      <td><%= answer.body %></td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>
