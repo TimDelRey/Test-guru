@@ -3,6 +3,7 @@
   <tr>
     <th>ID</th>
     <th>Тесты</th>
+    <th><%= link_to 'Назад', categories_path(@category) %></th>
   </tr>
   <% @tests.each do |test| %>
   <tr>

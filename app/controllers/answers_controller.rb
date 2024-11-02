@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   before_action :search_answer, only: %i[edit update]
 
   def index
-    @answers = @question.answer
+    @answers = @question
   end
 
   def new

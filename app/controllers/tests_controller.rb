@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :search_test, only: %i[show]
+  before_action :search_test, only: %i[show edit update]
 
   def index
     # render inline: '<%= Test.all.pluck(:id, :title)%>'
@@ -23,6 +23,16 @@ class TestsController < ApplicationController
       redirect_to tests_path
     else
       render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @test.update(test_params)
+      redirect_to tests_path
+    else
+      render :edit
     end
   end
 

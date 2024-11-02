@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   #   resources :tests, only: [], shallow: true
   # end
 
-  resources :questions, only: [] do
+  resources :questions, only: %i[show] do
     resources :answers, shallow: true
   end
 

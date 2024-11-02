@@ -1,14 +1,2 @@
 <h1>Все тесты</h1>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Название</th>
-  </tr>
-
-  <% @tests.each do |test| %>
-  <tr>
-    <td><%= test.id %></td>
-    <td><%= test.title %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render 'tests', resource: @tests %>

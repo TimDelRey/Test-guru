@@ -1,14 +1,3 @@
 <h1>Категории</h1>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Название</th>
-  </tr>
-  <% @categories.each do |caregory| %>
-  <tr>
-    <td><%= caregory.id %></td>
-    <td><%= caregory.title %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render 'categories', resource: @categories %>
 
