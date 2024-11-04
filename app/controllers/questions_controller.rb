@@ -12,12 +12,12 @@ class QuestionsController < ApplicationController
     redirect_to @test
   end
 
-  def new
-    @question = Question.new
-  end
-
   def show
     render inline: '<%= @question.body%>'
+  end
+  
+  def new
+    @question = Question.new
   end
 
   def create
@@ -29,11 +29,13 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @test = @question.test
+  end
 
   def update
     if @question.update(question_params)
-      redirect_to test_questions_path
+      redirect_to test_path(id: @question.test.id)
     else
       render :edit
     end
