@@ -13,7 +13,7 @@
     <td><%= link_to 'Подробнее', test_path(r) %></td>
     <td><%= button_to 'Удалить', test_path(r), 
       method: :delete, 
-      data: { confirm: 'Точно удаляем?' } %></td>
+      data: { confirm: 'Точно удаляем?' }, onclick: "return confirm('Точно удаляем?');" %></td>
   </tr>
   <% end %>
 </table>

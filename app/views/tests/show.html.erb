@@ -1,3 +1,4 @@
 <h1><%= @tests_title %></h1>
-
+<%= custom_pluralize(@test.questions.count, 'вопрос') %>
+<!-- <p>В данном тесте <%= @test.questions.count %> вопроса</p> -->
 <%= render 'questions/questions', resource: @tests_questions %>
