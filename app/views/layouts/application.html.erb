@@ -132,6 +132,49 @@
                 font-size: 16px;
             }
         }
+        footer {
+            background: linear-gradient(to right, rgba(128, 0, 0, 0.9) 33.33%, rgba(50, 50, 50, 0.9) 33.33%, rgba(50, 50, 50, 0.9) 66.66%, rgba(10, 31, 68, 0.9) 66.66%);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 3px solid #0a1f44;
+            margin-top: 30px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        h3 {
+            background: linear-gradient(to right, #ff0000 33.33%, #ffffff 33.33%, #ffffff 66.66%, #0a1f44 66.66%);
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 1em;
+            text-transform: uppercase;
+            border: 3px solid #0a1f44;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Добавление контура шрифта */
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .footer-content a {
+            color: #0a1f44;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .footer-content a:hover {
+            color: #ff0000;
+        }
+
+        .social-links {
+            margin: 10px 0;
+        }
+
     </style>
     
   </head>
@@ -139,4 +182,7 @@
   <body>
     <%= yield %>
   </body>
+  <footer>
+      <%= render 'share/footer' %>
+  </footer>
 </html>

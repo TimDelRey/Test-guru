@@ -1,5 +1,5 @@
 <%= form_with(model: @category, data: { turbo: false }) do |form| %>
   <h1>Ответы к вопросу <%= @question.id %></h1>
   <h2>Вопрос: <%= @question.body %></h2>
-<%= render 'answers', resource: @answers %>
+<%= render 'answers', resource: @question %>
 <% end %>

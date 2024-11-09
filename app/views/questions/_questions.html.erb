@@ -13,6 +13,9 @@
     <td><%= r.test_id %></td>
     <td><%= link_to 'Корректировать', edit_question_path(r) %></td>
     <td><%= link_to 'Ответы', question_answers_path(r) %></td>
+    <td><%= button_to 'Удалить', question_path(r), 
+      method: :delete, 
+      data: { confirm: 'Точно удаляем?' } %></td>
   </tr>
   <% end %>
 </table>

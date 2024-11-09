@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :search_test, only: %i[show edit update]
+  before_action :search_test, only: %i[show edit update destroy]
 
   def index
     # render inline: '<%= Test.all.pluck(:id, :title)%>'
@@ -38,6 +38,10 @@ class TestsController < ApplicationController
 
   def search_test
     @test = Test.find(params[:id])
+  end
+
+  def destroy
+    redirect_to tests_path if @test.destroy
   end
 
   private

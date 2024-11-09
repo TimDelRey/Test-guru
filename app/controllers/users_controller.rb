@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :search_user, only: %i[show edit update]
+  before_action :search_user, only: %i[show edit update destroy]
 
   def index
     @users = User.all
@@ -33,6 +33,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    redirect_to users_path if @user.destroy
   end
 
   private

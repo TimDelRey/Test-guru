@@ -42,8 +42,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy
-    redirect_to test_questions_path
+    redirect_to test_path(id: @question.test.id) if @question.destroy
     # render inline: '<p>Результат удаления вопроса: <%=  !!@question %></p>'
     # redirect_to test_questions_path(@question)
   end

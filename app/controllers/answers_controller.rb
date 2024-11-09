@@ -2,10 +2,9 @@
 
 class AnswersController < ApplicationController
   before_action :search_question, only: %i[index new create]
-  before_action :search_answer, only: %i[edit update]
+  before_action :search_answer, only: %i[edit update destroy]
 
   def index
-    @answers = @question
   end
 
   def new
@@ -13,7 +12,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = @question.answer.build(answer_params)
+    @answer = @question.answers.build(answer_params)
     if @answer.save
       redirect_to question_answers_path
     else
@@ -29,6 +28,10 @@ class AnswersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    redirect_to question_answers_path(question_id: @answer.question.id) if @answer.destroy
   end
 
   private

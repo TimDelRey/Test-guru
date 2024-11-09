@@ -7,7 +7,7 @@ class Test < ApplicationRecord
              foreign_key: 'user_id'
 
   has_many :questions,
-           dependent: :nullify
+           dependent: :destroy
   has_many :started_tests,
            class_name: 'StartedTest',
            foreign_key: 'test_id',
