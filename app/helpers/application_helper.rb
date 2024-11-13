@@ -1,10 +1,10 @@
 module ApplicationHelper
   def current_year
-    current_year = Time.now.year
+    Time.current.year
   end
 
   def github_url(author, repo)
-    link_to "Github", "https://github.com/#{author}/#{repo}", target: "_blank"
+    link_to "Github", "https://github.com/#{author}/#{repo}", target: "_blank", rel: 'nofollow', rel: 'noopener'
   end
 
   def custom_pluralize(count, noun)
