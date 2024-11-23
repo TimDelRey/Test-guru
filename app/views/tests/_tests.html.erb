@@ -14,6 +14,7 @@
     <td><%= button_to 'Удалить', test_path(r), 
       method: :delete, 
       data: { confirm: 'Точно удаляем?' }, onclick: "return confirm('Точно удаляем?');" %></td>
+    <td><%= button_to 'Пройти тест', start_test_path(r) %></td>
   </tr>
   <% end %>
 </table>

@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :tests do
     resources :questions, except: :show, shallow: true
+
+    member do
+      post :start
+    end
   end
 
   resources :categories #do
@@ -23,7 +27,13 @@ Rails.application.routes.draw do
   # end
 
   resources :questions, only: %i[] do
-    resources :answers, shallow: true
+    resources :answers, except: :index, shallow: true
+  end
+
+  resources :test_passages, only: %i[show update] do
+    member do
+      get :result
+    end
   end
 
   root to: 'tests#index'

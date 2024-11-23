@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :search_test, only: %i[show edit update destroy]
+  before_action :search_test, only: %i[show edit update destroy start]
+  before_action :search_user, only: %i[start]
 
   def index
     # render inline: '<%= Test.all.pluck(:id, :title)%>'
@@ -36,15 +37,24 @@ class TestsController < ApplicationController
     end
   end
 
-  def search_test
-    @test = Test.find(params[:id])
-  end
-
   def destroy
     redirect_to tests_path if @test.destroy
   end
 
-  private
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
+  private 
+
+  def search_test
+    @test = Test.find(params[:id])
+  end
+
+  def search_user
+    @user = User.last
+  end
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :user_id)
