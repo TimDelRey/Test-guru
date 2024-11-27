@@ -161,6 +161,14 @@
     .social-links {
         margin: 10px 0;
     }
-
+    .result-green {
+    color: green;
+    }
+    
+    .result-red {
+    color: red;
+    }
+      
+      
 </style>
 </html>
