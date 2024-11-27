@@ -1,12 +1,11 @@
-class TestPassagesController < ApplicationController
+# frozen_string_literal: true
 
+class TestPassagesController < ApplicationController
   before_action :search_test_and_user, only: %i[show update result]
 
-  def show
-  end
+  def show; end
 
-  def result
-  end
+  def result; end
 
   def update
     @test_passage.accept!(params[:answer_ids])

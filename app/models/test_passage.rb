@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
@@ -10,9 +12,7 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
     self.current_question = next_question
     save!
@@ -29,7 +29,6 @@ class TestPassage < ApplicationRecord
 
     puts "Правильные ответы: #{correct_answers.ids.sort}"
     puts "Ответы полученные Answer IDs: #{answer_ids.to_a.map(&:to_i).sort}"
-  # byebug
     correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
     # correct_answer_count = correct_answers.count
     # (correct_answer_count == correct_answers.where(id: answer_ids).count) &&
