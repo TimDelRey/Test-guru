@@ -56,6 +56,7 @@ fish_soups_q1, fish_soups_q2,
 veg_course_q1, veg_course_q2,
 meat_course_q1, meat_course_q2,
 fish_course_q1, fish_course_q2 =
+
   Question.create! ([ # 1st line category
     {body: 'Сколько листов айсберга требется в салат из 1 морковки и 1 белой редьки?', # one
       test_id: vegetable_salads.id},
@@ -102,13 +103,7 @@ fish_course_q1, fish_course_q2 =
     {body: 'Какой перец добавляется в спагетти с тыквой и креветками?', # ground chili pepper
       test_id: fish_course.id},
     ]) 
-  # 1st line category
-veg_salads_q1_a1, veg_salads_q1_a2, veg_salads_q1_a3, veg_salads_q1_a4, 
-veg_salads_q2_a1, veg_salads_q2_a2, veg_salads_q2_a3, veg_salads_q2_a4, 
-meat_salads_q1_a1, meat_salads_q1_a2, meat_salads_q1_a3, meat_salads_q1_a4,
-meat_salads_q2_a1, meat_salads_q2_a2, meat_salads_q2_a3, meat_salads_q2_a4,
-fruit_salads_q1_a1, fruit_salads_q1_a2, fruit_salads_q1_a3, fruit_salads_q1_a4,
-fruit_salads_q2_a1, fruit_salads_q2_a2, fruit_salads_q2_a3, fruit_salads_q2_a4 = 
+
 Answer.create! ([ 
   {body: 'Один', correct: true, question_id: veg_salads_q1.id},
   {body: 'Два', correct: false, question_id: veg_salads_q1.id},
