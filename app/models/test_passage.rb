@@ -7,6 +7,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  PASS_PERCENT = 85
+
   def complited?
     current_question.nil?
   end
@@ -16,6 +18,19 @@ class TestPassage < ApplicationRecord
 
     self.current_question = next_question
     save!
+  end
+
+  def test_result
+    result_factor = self.correct_questions.to_f / self.test.questions.count
+    test_result_percent = result_factor * 100
+
+    result = if test_result_percent >= PASS_PERCENT
+               "<span class='result-green'>Тест успешно пройден</span>"
+             else
+               "<span class='result-red'>Тест не пройден</span>"
+             end
+
+    "#{result}<br>#{test_result_percent.to_i}% правильных ответов".html_safe
   end
 
   private

@@ -2,7 +2,6 @@
 
 class TestsController < ApplicationController
   before_action :search_test, only: %i[show edit update destroy start]
-  before_action :search_user, only: %i[start]
 
   def index
     # render inline: '<%= Test.all.pluck(:id, :title)%>'
@@ -42,6 +41,7 @@ class TestsController < ApplicationController
   end
 
   def start
+    @user = User.last
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
@@ -50,10 +50,6 @@ class TestsController < ApplicationController
 
   def search_test
     @test = Test.find(params[:id])
-  end
-
-  def search_user
-    @user = User.last
   end
 
   def test_params
