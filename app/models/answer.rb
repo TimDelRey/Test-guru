@@ -11,6 +11,6 @@ class Answer < ApplicationRecord
   private
 
   def max_answers
-    errors.add(:base) if question.answer.count >= 4
+    errors.add(:base) if question.answers.count >= 4
   end
 end

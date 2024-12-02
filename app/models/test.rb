@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+ # frozen_string_literal: true
 
 class Test < ApplicationRecord
   belongs_to :category
@@ -7,13 +7,15 @@ class Test < ApplicationRecord
              foreign_key: 'user_id'
 
   has_many :questions,
-           dependent: :nullify
-  has_many :started_tests,
-           class_name: 'StartedTest',
-           foreign_key: 'test_id',
            dependent: :destroy
-  has_many :users, through: :started_tests,
-                   dependent: :nullify
+  # has_many :started_tests,
+  #          class_name: 'StartedTest',
+  #          foreign_key: 'test_id',
+  #          dependent: :destroy
+  # has_many :users, through: :started_tests,
+  #                  dependent: :nullify
+  has_many :test_passages
+  has_many :users , through: :test_passages
 
   validates :title, presence: true,
                     uniqueness: { scope: :level }

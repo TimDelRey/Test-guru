@@ -1,0 +1,26 @@
+<%= form_with(model: [@question, @answer], data: { turbo: false }) do |form| %>
+
+<%= render 'share/errors', resource: @answer %>
+
+  <h3>Вопрос для которого создается ответ:</h3>  
+  <h2>
+    <%= @answer.question.body %>
+    <% form.hidden_field :id, value: @question.id %>
+  </h2>
+
+  <p>
+    <%= form.label 'Введите текст ответа' %>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.label :correct, 'Верный ответ на вопрос?' %>
+    <%= form.radio_button :correct, true %>
+    <%= form.label :correct, 'Да' %>
+    <%= form.radio_button :correct, false %>
+    <%= form.label :correct, 'Нет' %>
+  </p>
+
+  <p><%= form.submit %></p>
+  <p><%= link_to 'Назад', question_answers_path %></p>
+<% end %>

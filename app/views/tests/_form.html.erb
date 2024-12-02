@@ -1,0 +1,28 @@
+<%= form_with(model: @test, data: { turbo: false }) do |form| %>
+  
+<%= render 'share/errors', resource: @test %>
+
+  <p>
+    <%= form.label 'Название теста' %>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label 'Уровень теста' %>
+    <%= form.number_field :level, in: 0..4, min: 0, max: 4 %>
+  </p>
+
+  <p>
+    <%= form.label 'Выберите категорию вопроса' %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
+
+  <p>
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :name, prompt: true %>
+  </p>
+
+  <p><%= form.submit %></p>
+
+  <p><%= link_to 'Назад', tests_path %></p>
+<% end %>

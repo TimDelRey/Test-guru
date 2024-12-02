@@ -1,0 +1,14 @@
+<%= form_with(model: @question, 
+url: @question.persisted? ? question_path(@question) : test_questions_path(@test), 
+method: @question.persisted? ? :patch : :post, 
+local: true) do |form| %>
+  <%= render 'share/errors', resource: @question %>
+
+  <p>
+    <%= form.label :body, 'Введите текст нового вопроса: ' %>
+    <%= form.text_field :body %>
+    <%= form.hidden_field :test_id, value: @test.id %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>

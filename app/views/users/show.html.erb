@@ -1,0 +1,16 @@
+<h1><%= @user.name %></h1>
+<p>ID: <%= @user.id %></p>
+<p>E-mail: <%= @user.email %></p>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Тесты</th>
+    <th><%= link_to 'Назад', users_path %></th>
+  </tr>
+  <% @tests.each do |test| %>
+  <tr>
+    <td><%= test.id %></td>
+    <td><%= test.title %></td>
+  </tr>
+  <% end %>
+</table>

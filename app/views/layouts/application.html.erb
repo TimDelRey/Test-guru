@@ -8,9 +8,22 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <div class="navigation">
+        <button onclick="window.location.href='/users'">Пользователи</button>
+        <button onclick="window.location.href='/categories'">Категории</button>
+        <button onclick="window.location.href='/tests'">Тесты</button>
+    </div>
   </head>
 
   <body>
+
     <%= yield %>
+
+    <footer>
+        <%= render 'share/footer' %>
+    </footer>
   </body>
+
+
 </html>
