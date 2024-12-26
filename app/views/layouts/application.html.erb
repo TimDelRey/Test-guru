@@ -18,6 +18,11 @@
 
   <body>
 
+    <% if logged_in? %>
+      <p class="nav user"> Добро пожаловать шеф <b><%= current_user.name %></b></p>
+      <%= button_to 'Выйти', logout_path, method: :delete%>
+    <% end %>
+
     <%= yield %>
 
     <footer>
