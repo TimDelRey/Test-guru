@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      redirect_to login_path, alert: 'Идентифицируй себя!!!'
+      redirect_to login_path, alert: 'Желаете зарегистрироваться или авторизоваться?' # алерт тут доп параметр редиректа
     end
   end
 

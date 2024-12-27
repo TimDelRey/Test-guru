@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'welcome/index'
   get 'sessions/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -44,4 +45,5 @@ Rails.application.routes.draw do
   # get '/questions/:id/delete', to: 'questions#destroy'
   get :login, to: 'sessions#new'
   delete :logout, to: 'sessions#destroy'
+  get :welcome, to: 'welcome#index'
 end

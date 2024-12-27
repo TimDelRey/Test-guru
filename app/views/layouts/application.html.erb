@@ -8,11 +8,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-    <div class="navigation">
+    <div>
+      <div class="navigation">
+        <a href="/welcome" class="emblem">TEST-GURU</a>
         <button onclick="window.location.href='/users'">Пользователи</button>
         <button onclick="window.location.href='/categories'">Категории</button>
         <button onclick="window.location.href='/tests'">Тесты</button>
+      </div>
+      <% unless logged_in? %>
+        <div class "auth-navigation">
+          <a href="/welcome">Зарегистрироваться</a>
+          <a href="/welcome">Войти</a>
+        </div>
+        <% end %>
     </div>
   </head>
 
