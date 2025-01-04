@@ -2,8 +2,9 @@
 
 class UsersController < ApplicationController
   # before_action :authenticate_user!
+  before_action :auth_check, except: :index
   before_action :search_user, only: %i[show edit update destroy]
-
+  
   def index
     @users = User.all
   end

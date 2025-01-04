@@ -6,7 +6,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+
+      redirect_url = cookies[:redirect_after_login] || root_path
+      cookies.delete(:redirect_after_login)
+      redirect_to redirect_url
     else
       flash.now[:alert] = 'Проверьте введенные данные'
       render :new
