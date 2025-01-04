@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  # before_action :authenticate_user!
   before_action :search_user, only: %i[show edit update destroy]
 
   def index

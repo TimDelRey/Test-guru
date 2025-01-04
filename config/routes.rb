@@ -22,11 +22,11 @@ Rails.application.routes.draw do
 
   resources :sessions, only: :create
 
-  resources :categories #do
+  resources :categories # do
   #   resources :tests, only: [], shallow: true
   # end
 
-  resources :users #do
+  resources :users # do
   #   resources :tests, only: [], shallow: true
   # end
 
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'tests#index'
+  root to: 'welcome#index'
 
   # get '/questions/:id/delete', to: 'questions#destroy'
   get :login, to: 'sessions#new'

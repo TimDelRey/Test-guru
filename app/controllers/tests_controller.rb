@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :search_test, only: %i[show edit update destroy start]
 
   def index
@@ -47,7 +47,7 @@ class TestsController < ApplicationController
     redirect_to @user.test_passage(@test)
   end
 
-  private 
+  private
 
   def search_test
     @test = Test.find(params[:id])
