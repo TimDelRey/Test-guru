@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   # before_action :authenticate_user!
-  before_action :auth_check, except: :index
+  before_action :auth_check, except: %i[index new create]
   before_action :search_user, only: %i[show edit update destroy]
   
   def index
@@ -19,10 +19,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    if @user.save
-      redirect_to users_path
-    else
+    begin
+      if @user.save
+        redirect_to users_path
+      else
+        render :new
+      end
+    rescue ActiveRecord::RecordNotUnique
+      flash.now[:alert] = 'Пользователь с таким адресом электронной почты уже существует.'
       render :new
     end
   end
@@ -30,13 +34,18 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user
-    else
+    begin
+      if @user.update(user_params)
+        redirect_to @user
+      else
+        render :edit
+      end
+    rescue ActiveRecord::RecordNotUnique
+      flash.now[:alert] = 'Пользователь с таким адресом электронной почты уже существует.'
       render :edit
     end
   end
-
+  
   def destroy
     redirect_to users_path if @user.destroy
   end

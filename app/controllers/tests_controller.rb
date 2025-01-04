@@ -43,7 +43,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.last
+    @user = @current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end

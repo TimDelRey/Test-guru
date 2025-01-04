@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     unless logged_in?
       cookies[:redirect_after_login] = request.fullpath
       redirect_to login_path
-      flash[:alert] = 'У вас недостаточно прав'
+      flash[:alert] = 'Возникли ошибки'
     end
   end
 end
