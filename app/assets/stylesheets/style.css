@@ -15,7 +15,23 @@
         background-color: white;
         border-radius: 15px;
         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-        border: 5px solid #0a1f44;
+        border: 5px solid rgb(10, 31, 68);
+    }
+
+    .emblem {
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        background-color: rgb(10, 31, 68); /* Цвет фона кнопки */
+        color: white; /* Цвет текста */
+        padding: 15px 30px; /* Отступы */
+        border-radius: 5px; /* Скругленные углы */
+        font-size: 20px; /* Размер шрифта */
+        transition: background-color 0.3s; /* Плавный переход цвета фона */
+    }
+
+    .emblem:hover {
+        background-color: #45a049; /* Цвет фона при наведении */
     }
 
     h1 {
@@ -169,6 +185,11 @@
     color: red;
     }
       
+    .welcome-body {
+        background-color: #e6f7ff;
+        padding: 10px;
+        border-radius: 5px;
+    }
       
 </style>
 </html>

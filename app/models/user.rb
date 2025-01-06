@@ -1,20 +1,12 @@
 # frozen_string_literal: true
 
+require 'digest/sha1'
+
 class User < ApplicationRecord
-  # has_many :created_tests,
-  #          class_name: 'Test',
-  #          foreign_key: 'user_id',
-  #          dependent: :nullify
-  # has_many :started_test,
-  #          class_name: 'StartedTest',
-  #          foreign_key: 'user_id',
-  #          dependent: :destroy
-  # has_many :tests, through: :started_test
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-
-  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  has_secure_password
 
   def tests_history_by_level(level)
     Test.joins(:started_tests)

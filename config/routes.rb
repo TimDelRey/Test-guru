@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'welcome/index'
+  get 'sessions/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -18,11 +20,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories #do
+  resources :sessions, only: :create
+
+  resources :categories # do
   #   resources :tests, only: [], shallow: true
   # end
 
-  resources :users #do
+  resources :users # do
   #   resources :tests, only: [], shallow: true
   # end
 
@@ -36,7 +40,10 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'tests#index'
+  root to: 'welcome#index'
 
   # get '/questions/:id/delete', to: 'questions#destroy'
+  get :login, to: 'sessions#new'
+  delete :logout, to: 'sessions#destroy'
+  get :welcome, to: 'welcome#index'
 end

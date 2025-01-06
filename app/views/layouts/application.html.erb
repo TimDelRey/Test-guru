@@ -8,12 +8,22 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
     <div class="navigation">
-        <button onclick="window.location.href='/users'">Пользователи</button>
-        <button onclick="window.location.href='/categories'">Категории</button>
-        <button onclick="window.location.href='/tests'">Тесты</button>
+      <a href="/welcome" class="emblem">TEST-GURU</a>
+      <button onclick="window.location.href='/users'">Пользователи</button>
+      <button onclick="window.location.href='/categories'">Категории</button>
+      <button onclick="window.location.href='/tests'">Тесты</button>
     </div>
+    <div class="auth-navigation">
+    <% if logged_in? %>
+      <p> За работу шеф <b><%= current_user.name %></b>!</p>
+      <%= button_to 'Выйти', logout_path, method: :delete%>
+    <% else %>
+      <a href="users/new">Зарегистрироваться</a>
+      <a href="/sessions/new">Войти</a>
+    <% end %>
+    </div>
+    <%= flash_message %>
   </head>
 
   <body>
