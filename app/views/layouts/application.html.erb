@@ -10,24 +10,22 @@
     <%= javascript_importmap_tags %>
     <div class="navigation">
       <a href="/welcome" class="emblem">TEST-GURU</a>
-      <button onclick="window.location.href='/users'">Пользователи</button>
+      <!-- <button onclick="window.location.href='/users'">Пользователи</button> --> #на ремонте
       <button onclick="window.location.href='/categories'">Категории</button>
       <button onclick="window.location.href='/tests'">Тесты</button>
     </div>
-    <div class="auth-navigation">
-    <% if logged_in? %>
-      <p> За работу шеф <b><%= current_user.name %></b>!</p>
-      <%= button_to 'Выйти', logout_path, method: :delete%>
-    <% else %>
-      <a href="users/new">Зарегистрироваться</a>
-      <a href="/sessions/new">Войти</a>
-    <% end %>
-    </div>
-    <%= flash_message %>
+      <% if user_signed_in? %>
+        <p class="auth-navigation">За работу шеф <%= current_user.name %> |
+        <%= link_to 'Выход', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <p>user_signed_in - <%= user_signed_in? %></p>
+      <% end %>
+
+    <%#= flash_message %>
   </head>
 
   <body>
-
+    <%= render 'share/flash' %>
     <%= yield %>
 
     <footer>

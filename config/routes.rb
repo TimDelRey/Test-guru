@@ -1,6 +1,8 @@
-# frozen_string_literal: true
+# frozen_string_literal: tru e
 
 Rails.application.routes.draw do
+  devise_for :users, path_names: { sign_in: :login, sign_out: :logout }
+
   get 'welcome/index'
   get 'sessions/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -20,15 +22,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions, only: :create
-
   resources :categories # do
   #   resources :tests, only: [], shallow: true
   # end
 
-  resources :users # do
-  #   resources :tests, only: [], shallow: true
-  # end
+  resources :users, except: :create
 
   resources :questions, only: %i[] do
     resources :answers, except: :index, shallow: true
@@ -43,7 +41,6 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   # get '/questions/:id/delete', to: 'questions#destroy'
-  get :login, to: 'sessions#new'
-  delete :logout, to: 'sessions#destroy'
+  # delete :logout, to: 'sessions#destroy'
   get :welcome, to: 'welcome#index'
 end

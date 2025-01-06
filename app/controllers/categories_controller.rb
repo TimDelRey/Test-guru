@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  before_action :auth_check, except: :index
+  # before_action :auth_check, except: :index
   before_action :search_category, only: %i[show edit update destroy]
 
   def index

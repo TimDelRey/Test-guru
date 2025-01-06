@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
-require 'digest/sha1'
-
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :lockable, :timeoutable, and :omniauthable
+  devise :database_authenticatable, 
+         :registerable,
+         :recoverable,
+         :rememberable, 
+         :validatable,
+         :confirmable,
+         :trackable
   has_many :test_passages
   has_many :tests, through: :test_passages
-
-  has_secure_password
 
   def tests_history_by_level(level)
     Test.joins(:started_tests)
